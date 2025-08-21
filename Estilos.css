@@ -28,9 +28,9 @@
 
 /* Cambio de plata de colores */
 :root{
-  --primario:#F8F8F8;
+  --primario:#f8f8f8;
   --secundario:#FAEBCD;
-  --terciario:#F7C873;
+  --terciario:#f7f073;
   --cuarto: #FA812F;
 }
 
