@@ -1,15 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&display=swap');
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Mozilla Headline", sans-serif;
 }
 
+/* Prueba de animacions */
+@keyframes Ejemplo{
+  0% {font-size: 0; width: 0%;}
+  100% {font-size: 17px; width: 30%;}
+}
+
+@keyframes Cel {
+  0% {
+    font-size: 0;
+    width: 0%;
+  }
+
+  100% {
+    font-size: 12px;
+    width: 40%;
+  }
+}
+
+/* Cambio de plata de colores */
 :root{
-  --primario:white;
-  --secundario:#ffd857;
-  --terciario:gray;
+  --primario:#F8F8F8;
+  --secundario:#FAEBCD;
+  --terciario:#F7C873;
+  --cuarto: #FA812F;
 }
 
 body{
@@ -21,13 +43,12 @@ body{
 .header{
   width: 100%;
   height: 40px;
-  background-color: var(--secundario);
+  background-color: var(--terciario);
   display: flex; /* Se agrega el display flex */
   flex-direction: row; /* Se ajusta la direccion u orientaccion */
   justify-content: space-between; /* El espaciado de elementos */
   align-items: center;
-  padding: 0 20px;
-  margin-bottom: 50px;
+  padding: 30px;
 }
 
 
@@ -37,7 +58,7 @@ body{
 }
 
 .header__nav-items{
-  width: 45%;
+  width: 35%;
   cursor: pointer;
 }
 
@@ -49,7 +70,6 @@ body{
 /*MAIN*/
 .main{
   display: flex; /* Hago flexible todo el contenido principal */
-  margin-left: 10px;
   align-items: start; 
 }
 
@@ -63,18 +83,23 @@ body{
   width: 12%;
   display: flex; 
   flex-direction: column; /* Defino la orientacion de la side-bar */
-  min-width: 150px;
-  border-right: 2px solid black;
+  min-width: 100px;
+  padding: 6em 0;
+  height: 1068px;
+  border-right: 2px solid white;
+  left: 0;
+  background-color: var(--secundario); /* Añado un color de fondo */
 }
 
 .main__aside h1{
   margin-top: 20px;
+  font-size: 18px;
 }
 
 .main__aside-categorias{
   text-decoration: none;
   margin: 50px 0px;
-  color: black;
+  color: Black;
 }
 
 .main__aside-categorias:hover{
@@ -89,6 +114,7 @@ body{
 .main__contenedor{
   flex: 1; /* Dispribuyo el espacio en blanco */
   display: flex;
+  width: 88%;
   flex-wrap: wrap; /* que el contenido vaya ocupando fila por fila */
   justify-content: space-evenly;
 }
@@ -115,6 +141,7 @@ body{
   border-radius: 10px;
   box-shadow: 1px 1px 20px rgb(184, 184, 184);
 }
+
 /*CAMBIOS DE IMAGENES*/
 
 /*Solo si el contenedor padre tiene un target activo, desactiva los demas*/
@@ -123,7 +150,10 @@ body{
 }
 /*Dentro del contenedor padre, todo el que tenga target, mostrarlos*/
 .main__contenedor > *:target {
-  display: inline-block;
+  display: flex; /*Agrego un flex al momento de filtrar los elementos*/
+  flex-wrap: wrap; /*para que los elementos ocupen cada fila*/
+  justify-content: center;
+  gap: 20px;
 }
 
 .contenedor__tarjeta-texto{
@@ -131,13 +161,95 @@ body{
 }
 
 .footer{
-  text-align: center;
-  width: 100%;
-  height: 100px;
+  z-index: 1;
+  display: flex;
+  background-color: var(--terciario); /* Color de fondo del footer */
+  justify-content: center;
 }
 
 .footer__texto{
   line-height: 95px;
-  display: inline-block;
   margin: 0px 50px;
+}
+
+/* Añadido ediciones -> Responsivo */
+
+@media(max-width:1080px){
+  
+  .header{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    font-size: 12px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__nav-items{
+    margin-top: 3px;
+  }
+
+  .main__aside{
+    display: none;
+    position: relative;
+    animation-name: Ejemplo;
+    animation-duration: 1s;
+  }
+  
+  #Sidebar:target{
+    z-index: 1;
+    left: 0;
+    display: flex;
+    position: fixed;
+    width: 30%;
+    left: 10;
+    border-radius: 10px;
+  }
+
+  .footer{
+    position: relative;
+    z-index: 2 ;
+  }
+
+  .footer__texto{
+    font-size: 10px;
+  }
+
+  .footer__texto h1{
+    font-size: 12px;
+  }
+}
+
+@media(max-width:480px){
+  
+  .header{
+    font-size: 10px;
+  }
+
+  #Sidebar:target{
+    width: 40%;
+    margin-top: 10px;
+    font-size: 12px;
+    animation-name: Cel;
+    animation-duration: 1s;
+  }
+
+  .footer{
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    height: 195px;
+  }
+
+  .footer__texto p{
+    height: 50px;
+    font-size: 10px;  
+  }
+
+  .footer__texto h1{
+    font-size: 10px; 
+    height: 50px;
+  }
+    
+
 }
