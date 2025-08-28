@@ -226,6 +226,17 @@ body{
     font-size: 10px;
   }
 
+  .header__nav{
+    width: 40%;
+    align-items: center;
+    
+  }
+
+  .header__nav-items{
+    width: 100%;
+    margin: 0 3px;
+  }
+
   #Sidebar:target{
     width: 40%;
     margin-top: 10px;
