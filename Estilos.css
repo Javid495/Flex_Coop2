@@ -55,6 +55,7 @@ body{
 .header__nav{
   display: flex; /* Este display cumple la funcion de ajustar los elementos de inicio de seccion */
   width: 30%;
+  justify-content: end;
 }
 
 .header__nav-items{
@@ -62,7 +63,8 @@ body{
   cursor: pointer;
 }
 
-.header__nav-icono{
+.header__nav .header__nav-icono{
+  display: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -187,6 +189,12 @@ body{
 
   .header__nav-items{
     margin-top: 3px;
+  }
+
+  .header__nav .header__nav-icono {
+    display: inline;
+    font-size: 20px;
+    cursor: pointer;
   }
 
   .main__aside{
