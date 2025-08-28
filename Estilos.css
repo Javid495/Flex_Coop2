@@ -93,7 +93,7 @@ body{
   background-color: var(--secundario); /* Añado un color de fondo */
 }
 
-.main__aside h1{
+.main__aside h2{
   margin-top: 20px;
   font-size: 18px;
 }
